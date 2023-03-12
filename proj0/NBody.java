@@ -3,7 +3,6 @@ public class NBody{
 	 
 
 	public static double readRadius(String PlanetsTxtPath){
-		PlanetsTxtPath = "./data/planets.txt";
 		In in = new In(PlanetsTxtPath);
 		int N = in.readInt();
 		double R = in.readDouble();
@@ -11,7 +10,6 @@ public class NBody{
 	}
 
 	public static Planet[] readPlanets(String PlanetsTxtPath){
-		PlanetsTxtPath="./data/planets.txt";
 		In in = new In(PlanetsTxtPath);
 		int N = in.readInt();
 		double R = in.readDouble();
