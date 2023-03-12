@@ -375,7 +375,7 @@ public final class In {
      * @deprecated Clearer to use 
      * <tt>new In(filename)</tt>.{@link #readAllInts()}
      */
-    public static int[] readInts(String filename) {
+   public static int[] readInts(String filename) {
         return new In(filename).readAllInts();
     }
 
