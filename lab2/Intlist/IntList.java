@@ -88,7 +88,8 @@ public class IntList {
                 if(p.rest == null)
                     break;
         }
-        p.rest = B;
+        IntList f = p;
+        f.rest = B;
         return A;
     }
 
