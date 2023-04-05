@@ -19,9 +19,13 @@ public class ArrayDeque<T> {
     }
 
     public void addLast(T item) {
+        T[] brr;
         if(size == arr.length) {
-            T[] brr = (T[]) new Object[size*2];
+            brr = (T[]) new Object[size*2];
             System.arraycopy(arr,0,brr,0,size);
+            arr = brr;
+        } else if(size == 0) {
+            brr = (T[]) new Object[1];
             arr = brr;
         }
         arr[size] = item;
@@ -74,5 +78,19 @@ public class ArrayDeque<T> {
         } else {
             return arr[index];
         }
+    }
+
+    public static void main(String[] args){
+        ArrayDeque<Integer> l = new ArrayDeque<>();
+        l.addLast(1);
+//        l.addLast(2);
+//        l.addLast(2);
+        l.addLast(2);
+        l.addLast(2);
+        l.addLast(2);
+//        l.addLast(2);
+//        l.addLast(2);
+//        l.addLast(4);
+//        l.addLast(6);
     }
 }
