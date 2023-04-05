@@ -23,12 +23,13 @@ public class ArrayDeque<T> {
         if(size == arr.length) {
             brr = (T[]) new Object[size*2];
             System.arraycopy(arr,0,brr,0,size);
+            brr[size] = item;
             arr = brr;
         } else if(size == 0) {
             brr = (T[]) new Object[1];
+            brr[size] = item;
             arr = brr;
         }
-        arr[size] = item;
         size += 1;
     }
 
@@ -79,4 +80,9 @@ public class ArrayDeque<T> {
             return arr[index];
         }
     }
+//
+//    public static void main(String[] args){
+//        ArrayDeque<Integer> l = new ArrayDeque<>();
+//        l.addLast(2);
+//    }
 }
