@@ -9,10 +9,12 @@ public class ArrayDeque<T> {
     }
 
     public void addFirst(T item) {
-        T[] crr = (T[]) new Object[size*2];
-        System.arraycopy(arr,0,crr,1,size);
+        T[] crr = (T[]) new Object[size+1];
+        if(size != 0) {
+            System.arraycopy(arr,0,crr,1,size);
+        }
+        crr[0] = item;
         arr = crr;
-        arr[0] = item;
         size += 1;
     }
 
@@ -27,12 +29,7 @@ public class ArrayDeque<T> {
     }
 
     public boolean isEmpty() {
-        return size==0;
-//        if(size == 0) {
-//            return true;
-//        } else {
-//            return false;
-//        }
+        return size == 0;
     }
 
     public int size() {
@@ -50,7 +47,7 @@ public class ArrayDeque<T> {
     }
 
     public T removeFirst() {
-        if(size == 0) {
+        if(isEmpty()) {
             return null;
         }
         T fpos = arr[0];
@@ -62,7 +59,7 @@ public class ArrayDeque<T> {
     }
 
     public T removeLast() {
-        if(size == 0) {
+        if(isEmpty()) {
             return null;
         }
         T lpos = arr[size-1];

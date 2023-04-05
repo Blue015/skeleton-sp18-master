@@ -1,9 +1,9 @@
 public class LinkedListDeque<T> {
 
     private class tNode {
-        public tNode first;
-        public T item;
-        public tNode next;
+        private tNode first;
+        private T item;
+        private tNode next;
 
         private tNode(tNode f,T i,tNode n) {
             first = f ;
@@ -45,12 +45,13 @@ public class LinkedListDeque<T> {
     }
 
     public boolean isEmpty() {
-        tNode xtemp = front.next;
-        if(xtemp.next == null) {
-            return true;
-        } else {
-            return false;
-        }
+        return size == 0;
+//        tNode xtemp = front.next;
+//        if(xtemp.next == null) {
+//            return true;
+//        } else {
+//            return false;
+//        }
     }
 
     public int size() {
