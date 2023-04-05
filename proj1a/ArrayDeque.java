@@ -79,18 +79,4 @@ public class ArrayDeque<T> {
             return arr[index];
         }
     }
-
-    public static void main(String[] args){
-        ArrayDeque<Integer> l = new ArrayDeque<>();
-        l.addLast(1);
-//        l.addLast(2);
-//        l.addLast(2);
-        l.addLast(2);
-        l.addLast(2);
-        l.addLast(2);
-//        l.addLast(2);
-//        l.addLast(2);
-//        l.addLast(4);
-//        l.addLast(6);
-    }
 }
