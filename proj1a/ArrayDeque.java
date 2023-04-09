@@ -23,8 +23,8 @@ public class ArrayDeque<T> {
         if (size == arr.length) {
             brr = (T[]) new Object[size * 2];
             System.arraycopy(arr, 0, brr, 0, size);
-            brr[size] = item;
             arr = brr;
+            arr[size] = item;
         } else if (size == 0) {
 //            brr = (T[]) new Object[1];
 //            brr[size] = item;
@@ -84,17 +84,17 @@ public class ArrayDeque<T> {
         }
     }
 
-//    public static void main(String[] args){
-//        ArrayDeque<Integer> l = new ArrayDeque<>();
-//        l.addLast(2);
-//        l.addLast(3);
-//        l.addLast(2);
-//        l.addLast(2);
-//        l.addLast(2);
-//        l.addLast(2);
-//        l.addLast(2);
-//        l.addLast(2);
-//        l.addLast(6);
-//        l.addLast(4);
-//    }
+    public static void main(String[] args) {
+        ArrayDeque<Integer> l = new ArrayDeque<>();
+        l.addLast(2);
+        l.addLast(3);
+        l.addLast(2);
+        l.addLast(2);
+        l.addLast(2);
+        l.addLast(2);
+        l.addLast(2);
+        l.addLast(2);
+        l.addLast(6);
+        l.addLast(4);
+    }
 }
