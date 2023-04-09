@@ -27,11 +27,19 @@ public class TestPalindrome {
     }
 
     @Test
-    public void testisPalindrome() {
-        OffByOne ob = new OffByOne();
-//        CharacterComparator bb = null;
+    public void testOffByOne() {
+        CharacterComparator ob = new OffByOne();
         assertTrue(palindrome.isPalindrome("flake", ob));
+        assertTrue(palindrome.isPalindrome("", ob));
         assertTrue(palindrome.isPalindrome("acadb", ob));
         assertFalse(palindrome.isPalindrome("cate", ob));
+    }
+
+    @Test
+    public void testOffBy5() {
+        CharacterComparator cc = new OffByN(5);
+        assertTrue(palindrome.isPalindrome("",cc));
+        assertTrue(palindrome.isPalindrome("a",cc));
+        assertFalse(palindrome.isPalindrome("flake",cc));
     }
 }
