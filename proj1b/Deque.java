@@ -14,9 +14,5 @@ public interface Deque<T> {
     void printDeque();
 
     T get(int index);
-
-    T getRecursive(int index);
-
-    LinkedListDeque<T>.tNode getRecursiveHelper(int index, LinkedListDeque.tNode ypos);
 }
 
