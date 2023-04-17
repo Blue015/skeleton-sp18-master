@@ -34,12 +34,6 @@ public class LinkedListDeque<T> {
 
     public boolean isEmpty() {
         return size == 0;
-//        tNode xtemp = front.next;
-//        if(xtemp.next == null) {
-//            return true;
-//        } else {
-//            return false;
-//        }
     }
 
     public int size() {

@@ -7,24 +7,24 @@ public class TestOffByN {
 
     @Test
     public void testOffBy5() {
-        OffByN OffBy5 = new OffByN(5);
-        assertTrue(OffBy5.equalChars('a', 'f'));
-        assertFalse(OffBy5.equalChars('F', 'h'));
-        OffByN OffBy6 = new OffByN(6);
-        assertTrue(OffBy6.equalChars('a', 'g'));
+        OffByN offBy5 = new OffByN(5);
+        assertTrue(offBy5.equalChars('a', 'f'));
+        assertFalse(offBy5.equalChars('F', 'h'));
+        OffByN offBy6 = new OffByN(6);
+        assertTrue(offBy6.equalChars('a', 'g'));
     }
 
     @Test
     public void testOffBy4() {
-        OffByN OffBy4 = new OffByN(4);
-        assertFalse(OffBy4.equalChars('a', 'g'));
-        assertFalse(OffBy4.equalChars('%', '&'));
+        OffByN offBy4 = new OffByN(4);
+        assertFalse(offBy4.equalChars('a', 'g'));
+        assertFalse(offBy4.equalChars('%', '&'));
     }
 
     @Test
     public void testOffBy3() {
-        OffByN OffBy3 = new OffByN(3);
-        assertFalse(OffBy3.equalChars('f','b'));
-        assertFalse(OffBy3.equalChars('a','c'));
+        OffByN offBy3 = new OffByN(3);
+        assertFalse(offBy3.equalChars('f', 'b'));
+        assertFalse(offBy3.equalChars('a', 'c'));
     }
 }

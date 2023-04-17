@@ -1,25 +1,24 @@
 public class LinkedListDeque<T> implements Deque<T> {
 
-    class tNode {
-
-        private tNode first;
+    class Tnode {
+        private Tnode first;
         private T item;
-        private tNode next;
+        private Tnode next;
 
-        private tNode(tNode f, T i, tNode n) {
+        private Tnode(Tnode f, T i, Tnode n) {
             first = f;
             item = i;
             next = n;
         }
     }
 
-    private tNode front;
-    private tNode last;
+    private Tnode front;
+    private Tnode last;
     private int size = 0;
 
     public LinkedListDeque() {
-        front = new tNode(null, null, null);
-        last = new tNode(front.next, null, null);
+        front = new Tnode(null, null, null);
+        last = new Tnode(front.next, null, null);
         front.next = last;
         last.first = front;
         size = 0;
@@ -28,8 +27,8 @@ public class LinkedListDeque<T> implements Deque<T> {
     @Override
     public void addFirst(T item) {
         size += 1;
-        tNode itemp = front.next;
-        tNode i = new tNode(null, item, null);
+        Tnode itemp = front.next;
+        Tnode i = new Tnode(null, item, null);
         i.next = itemp;
         itemp.first = i;
         front.next = i;
@@ -39,8 +38,8 @@ public class LinkedListDeque<T> implements Deque<T> {
     @Override
     public void addLast(T item) {
         size += 1;
-        tNode jtemp = last.first;
-        tNode j = new tNode(null, item, null);
+        Tnode jtemp = last.first;
+        Tnode j = new Tnode(null, item, null);
         j.next = last;
         last.first = j;
         jtemp.next = j;
@@ -59,7 +58,7 @@ public class LinkedListDeque<T> implements Deque<T> {
 
     @Override
     public void printDeque() {
-        tNode ktemp = front.next;
+        Tnode ktemp = front.next;
         while (ktemp.next != null) {
             if (ktemp.next.next != null) {
                 System.out.print(ktemp.item + " ");
@@ -72,7 +71,7 @@ public class LinkedListDeque<T> implements Deque<T> {
 
     @Override
     public T removeFirst() {
-        tNode fdel = front.next;
+        Tnode fdel = front.next;
         if (fdel.next != null) {
             T fobj;
             size -= 1;
@@ -88,8 +87,8 @@ public class LinkedListDeque<T> implements Deque<T> {
 
     @Override
     public T removeLast() {
-        tNode fnode = front.next;
-        tNode ldel = last.first;
+        Tnode fnode = front.next;
+        Tnode ldel = last.first;
         if (fnode.next != null) {
             T lobj;
             size -= 1;
@@ -106,7 +105,7 @@ public class LinkedListDeque<T> implements Deque<T> {
     @Override
     public T get(int index) {
         int ipos = 0;
-        tNode xpos = front.next;
+        Tnode xpos = front.next;
         while (ipos != index) {
             ++ipos;
             xpos = xpos.next;
@@ -118,7 +117,7 @@ public class LinkedListDeque<T> implements Deque<T> {
     }
 
     public T getRecursive(int index) {
-        tNode ypos = front.next;
+        Tnode ypos = front.next;
         if (ypos.next == null || index + 1 > size) {
             return null;
         }
@@ -126,7 +125,7 @@ public class LinkedListDeque<T> implements Deque<T> {
         return ypos.item;
     }
 
-    private tNode getRecursiveHelper(int index, tNode ypos) {
+    private Tnode getRecursiveHelper(int index, Tnode ypos) {
         if (index == 0) {
             return ypos;
         }
