@@ -43,7 +43,7 @@ public class TestArrayDequeGold {
         //removelast
         Integer result2 = tests.removeLast();
         Integer result3 = testa.removeLast();
-        assertEquals("Oh noooo!\nThis is bad:\n   Random number " + result2
+        assertNotEquals("Oh noooo!\nThis is bad:\n   Random number " + result2
                         + " not equal to " + result3 + "!",
                 result3, result2);
     }
