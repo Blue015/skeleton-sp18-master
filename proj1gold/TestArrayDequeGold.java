@@ -2,7 +2,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class TestArraryDequeGold {
+public class TestArrayDequeGold {
     @Test
     public void testAd() {
         StudentArrayDeque<Integer> tests = new StudentArrayDeque<>();
