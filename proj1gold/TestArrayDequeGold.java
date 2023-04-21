@@ -19,32 +19,28 @@ public class TestArrayDequeGold {
             }
         }
 
-        //addfirst
         Integer result4 = tests.removeFirst();
         Integer result5 = testa.removeFirst();
-        assertEquals("Oh noooo!\nThis is bad:\n   Random number " + result4
-                        + " not equal to " + result5 + "!",
+        assertEquals("\nremoveFirst(" + result4 + ")\n"
+                        + "removeFirst(" + result5 + ")\n" + "removeFirst()",
                 result4, result5);
 
-        //addlast
         Integer result6 = tests.removeLast();
         Integer result7 = testa.removeLast();
-        assertEquals("Oh noooo!\nThis is bad:\n   Random number " + result6
-                        + " not equal to " + result7 + "!",
+        assertEquals("\nremoveLast(" + result6 + ")\n"
+                        + "removeLast(" + result7 + ")\n" + "removeLast()",
                 result7, result6);
 
-        //removefirst
         Integer result0 = tests.removeFirst();
         Integer result1 = testa.removeFirst();
-        assertEquals("Oh noooo!\nThis is bad:\n   Random number " + result0
-                        + " not equal to " + result1 + "!",
+        assertEquals("\nremoveFirst(" + result0 + ")\n"
+                        + "removeFirst(" + result1 + ")\n" + "removeFirst()",
                 result1, result0);
 
-        //removelast
         Integer result2 = tests.removeLast();
         Integer result3 = testa.removeLast();
-        assertNotEquals("Oh noooo!\nThis is bad:\n   Random number " + result2
-                        + " not equal to " + result3 + "!",
+        assertEquals("\nremoveLast(" + result2 + ")\n"
+                        + "removeLast(" + result3 + ")\n" + "removeLast()",
                 result3, result2);
     }
 }
