@@ -3,36 +3,38 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class TestArrayDequeGold {
+    StudentArrayDeque<Integer> sad = new StudentArrayDeque<>();
+    ArrayDequeSolution<Integer> ads = new ArrayDequeSolution<>();
     private static Integer expected;
     private static Integer actual;
 
     @Test
     public void testAd() {
-        StudentArrayDeque<Integer> tests = new StudentArrayDeque<>();
-        ArrayDequeSolution<Integer> testa = new ArrayDequeSolution<>();
-        for (int i = 0; i < 10; i += 1) {
+        String message = "\n";
+
+        while (true) {
             double numberBetweenZeroAndOne = StdRandom.uniform();
+            Integer i = StdRandom.uniform(10);
 
-            if (numberBetweenZeroAndOne < 0.5) {
-                tests.addLast(i);
-                testa.addLast(i);
-            } else {
-                tests.addFirst(i);
-                testa.addFirst(i);
+            if (numberBetweenZeroAndOne < 0.25) {
+                sad.addLast(i);
+                ads.addLast(i);
+                message += "addLast(" + i + ")\n";
+            } else if (numberBetweenZeroAndOne < 0.5) {
+                ads.addFirst(i);
+                sad.addFirst(i);
+                message += "addFirst(" + i + ")\n";
+            } else if (numberBetweenZeroAndOne < 0.75 && !sad.isEmpty()) {
+                expected = ads.removeFirst();
+                actual = sad.removeFirst();
+                message += "removeFirst()\n";
+                assertEquals(message, expected, actual);
+            } else if (numberBetweenZeroAndOne < 1 && !sad.isEmpty()) {
+                expected = ads.removeLast();
+                actual = sad.removeLast();
+                message += "removeLast()\n";
+                assertEquals(message, expected, actual);
             }
-        }
-
-        for (int i = 0; i < 10; i += 1) {
-            double numberBetweenZeroAndOne = StdRandom.uniform();
-
-            if (numberBetweenZeroAndOne < 0.5) {
-                expected = tests.removeLast();
-                actual = testa.removeLast();
-            } else {
-                expected = tests.removeFirst();
-                actual = testa.removeFirst();
-            }
-            assertEquals(expected + " not equal to " + actual, expected, actual);
         }
     }
 }
