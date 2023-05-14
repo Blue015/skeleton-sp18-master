@@ -39,9 +39,6 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
         if (isFull()) {
             throw new RuntimeException("Ring Buffer Overflow");
         }
-        if (fillCount == 0) {
-            first = last;
-        }
         if (last == capacity - 1) {
             rb[last] = x;
             last = 0;
@@ -63,7 +60,6 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
             throw new RuntimeException("Ring Buffer Underflow");
         }
         T temp = rb[first];
-        rb[first] = null;
         if (first == capacity - 1) {
             first = 0;
         } else {
@@ -92,20 +88,26 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
 
     private class Arbiterator implements Iterator<T> {
         private int pos;
+        private int num;
 
         Arbiterator() {
-            pos = 0;
+            pos = first;
+            num = 0;
         }
 
         @Override
         public boolean hasNext() {
-            return pos < fillCount;
+            return num < fillCount;
         }
 
         @Override
         public T next() {
             T value = rb[pos];
             pos += 1;
+            if (pos == capacity) {
+                pos = 0;
+            }
+            num++;
             return value;
         }
     }
